@@ -1,0 +1,8 @@
+@model List<CourseViewModel>
+     
+        @foreach(var key in Model){
+            
+        
+        @await Html.PartialAsync("_Course.cshtml", key)
+    
+        }

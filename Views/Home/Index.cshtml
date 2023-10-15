@@ -1,0 +1,22 @@
+@model List<CourseViewModel>
+<h1>Home Index!!!</h1>
+
+
+@section Header{
+    @await Html.PartialAsync("~/Views/Shared/_Header.cshtml")
+}
+<div class="row">
+    @foreach(var kurs in Model){
+        if(kurs.isActive && kurs.isHome){
+        <div class="col-3">
+            <div class="card">
+                <img src="~/img/@kurs.Image" alt="" class="card-img-top" width="200" height="350">
+                <div class="card-body">
+                    <h5 class="card-title">@kurs.Title</h5>
+                    <p class="card-text">@kurs.Description</p>
+                    <a class="btn btn-primary" asp-controller="Course" asp-action="Details" asp-route-id="@kurs.Id">Detail</a>
+                </div>
+            </div>
+        </div>
+    }}
+</div>
